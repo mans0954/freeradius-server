@@ -112,6 +112,7 @@ build: build-arch build-indep
 build-arch: patch build-arch-stamp
 build-arch-stamp: config.status
 	$(MAKE)
+	$(MAKE) test
 	touch $@
 
 build-indep: patch build-indep-stamp
