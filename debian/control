@@ -27,7 +27,11 @@ Build-Depends: debhelper (>= 9),
  libmemcached-dev,
  libhiredis-dev,
  python-dev,
- samba-dev
+ samba-dev,
+#The following are for building eapol_test and make test
+ libnl-3-dev,
+ libnl-genl-3-dev,
+ openssl
 Section: net
 Priority: optional
 Maintainer: Josip Rodin <joy-packages@debian.org>

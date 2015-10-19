@@ -1,2 +1,3 @@
+maketest.patch
 radiusd-to-freeradius.diff
 disable-dhcp-bydefault.diff

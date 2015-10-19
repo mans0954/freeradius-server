@@ -1,0 +1,29 @@
+--- a/scripts/travis/eapol_test-build.sh
++++ b/scripts/travis/eapol_test-build.sh
+@@ -32,7 +32,7 @@
+ #
+ TMP_BUILD_DIR="$(mktemp -d -t eapol_test.XXXXX)"
+ HOSTAPD_DIR="${TMP_BUILD_DIR}/hostapd"
+-WPA_SUPPLICANT_DIR="${HOSTAPD_DIR}/wpa_supplicant"
++WPA_SUPPLICANT_DIR="wpa-2.3/wpa_supplicant"
+ 
+ BUILD_CONF_DIR="$(dirname $0)/eapol_test"
+ EAPOL_TEST_PATH="${BUILD_CONF_DIR}/eapol_test"
+@@ -75,11 +75,12 @@
+ fi
+ 
+ # Shallow clone so we don't use all Jouni's bandwidth
+-if ! git clone --depth 1 http://w1.fi/hostap.git 1>&2 "${TMP_BUILD_DIR}/hostapd"; then
+-    echo "Failed cloning hostapd" 1>&2
+-    rm -rf "${TMP_BUILD_DIR}"
+-    exit 1
+-fi
++#if ! git clone --depth 1 http://w1.fi/hostap.git 1>&2 "${TMP_BUILD_DIR}/hostapd"; then
++#    echo "Failed cloning hostapd" 1>&2
++#    rm -rf "${TMP_BUILD_DIR}"
++#    exit 1
++#fi
++apt-get source hostapd
+ 
+ cp "$BUILD_CONF_FILE" "$WPA_SUPPLICANT_DIR/.config"
+ 
